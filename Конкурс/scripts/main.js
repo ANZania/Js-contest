@@ -187,6 +187,10 @@ const addRequest = () => {
         if (request.status === 200) {
             dataBase = JSON.parse(request.response);
             renderCard(dataBase);
+            document.querySelector('form').addEventListener('change', (event) => {
+                event.preventDefault();
+                filterCard(dataBase);
+            });
             document.querySelector('form').addEventListener('submit', (event) => {
                 event.preventDefault();
                 filterCard(dataBase);
